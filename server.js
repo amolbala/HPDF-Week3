@@ -19,8 +19,9 @@ app.get('/', function (req, res) {
 app.post('/answer', function(req, res) {
     var fr = JSON.stringify(req.body.StartPoint)
     var to = JSON.stringify(req.body.EndPoint)
+    var mode = JSON.stringify(req.body.mode)
     var key = 'AIzaSyCSb_fvcY-0NwFZbJzVZdvNjoYb3wO9yzY' // The API key
-    url = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + fr + '&destination=' + to + '&key=' + key;
+    url = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + fr + '&destination=' + to + '&mode=' + mode + '&key=' + key;
     var res1 = request('GET', url);
     var ans1 = JSON.parse(res1.body);
     var route = ans1.routes;
